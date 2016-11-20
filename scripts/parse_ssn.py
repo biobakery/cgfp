@@ -66,7 +66,7 @@ c_epsilon = 1e-20
 # arguments
 # ---------------------------------------------------------------
 
-def get_args ():
+def get_args( ):
     """ master argument parser """
     parser = argparse.ArgumentParser( 
         description=description, 
@@ -204,4 +204,4 @@ def main( ):
                     print( "{}\t{}".format( i+1, acc ), file=fh )
             
 if __name__ == "__main__":
-    main()
+    main( )

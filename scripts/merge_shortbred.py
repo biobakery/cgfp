@@ -2,7 +2,7 @@
 
 """
 merge_shortbred.py
-============
+==================
 Please type "./merge_shortbred.py -h" for usage help
 
 Authors:
@@ -34,6 +34,7 @@ import os
 import sys
 import argparse
 import csv
+import re
 
 #-------------------------------------------------------------------------------
 # description
@@ -55,20 +56,20 @@ BASIC OPERATION:
 ARGUMENTS:
 """
 
-# ---------------------------------------------------------------
+#-------------------------------------------------------------------------------
 # constants
-# ---------------------------------------------------------------
+#-------------------------------------------------------------------------------
 
 c_na = "#N/A"
 c_epsilon = 1e-20
 c_default_genome_size = 5e6
-c_cluster_delim = "|"
+c_delim = "|"
 
-# ---------------------------------------------------------------
+#-------------------------------------------------------------------------------
 # arguments
-# ---------------------------------------------------------------
+#-------------------------------------------------------------------------------
 
-def get_args ():
+def get_args( ):
     """ master argument parser """
     parser = argparse.ArgumentParser( 
         description=description, 
@@ -79,8 +80,7 @@ def get_args ():
         type=str,
         metavar="<path(s) to shortbred outputs>",
         nargs="+",
-        help="""
-        One or more output files from ShortBRED quantify
+        help="""One or more output files from ShortBRED quantify
         """,
     )
     parser.add_argument( 
@@ -88,8 +88,7 @@ def get_args ():
         required=True,
         metavar="<path>",
         type=str,
-        help="""
-        Clusters file created from parse_ssn.py
+        help="""Clusters file created from parse_ssn.py
         """,
     )
     parser.add_argument( 
@@ -97,8 +96,7 @@ def get_args ():
         type=str,
         metavar="<path>",
         default="protein-abundance.txt",
-        help="""
-        Path to output file 1: abundance of individual proteins
+        help="""Path to output file 1: abundance of individual proteins
         """,
     )
     parser.add_argument( 
@@ -106,15 +104,13 @@ def get_args ():
         type=str,
         metavar="<path>",
         default="cluster-abundance.txt",
-        help="""
-        Path to output file 2: abundance of SSN clusters
+        help="""Path to output file 2: abundance of SSN clusters
         """,
     )
     parser.add_argument( 
         "-n", "--sum-normalize",
         action="store_true",
-        help="""
-        Sum-normalize the output files (force columns sums = 1.0)
+        help="""Sum-normalize the output files (force columns sums = 1.0)
         """,
     )
     parser.add_argument( 
@@ -122,9 +118,7 @@ def get_args ():
         type=str,
         default=None,
         metavar="<path>",
-        help="""
-        Perform genome-size normalization (requires mapping from sample ID
-        to average genome size)
+        help="""Perform genome-size normalization\n(requires mapping from sample ID to average genome size)
         """,
     )
     args = parser.parse_args()
@@ -164,7 +158,7 @@ def read_dict( fh, kdex=0, vdex=1, multivalue=False,
     return d
 
 def strat_sort( k ):
-    k = k.split( c_cluster_delim )[0]
+    k = k.split( c_delim )[0]
     k = 0 if k == c_na else int( k )
     return k
 
@@ -183,6 +177,11 @@ def write_nested_dict( dd, path, missing=0 ):
             outline = [r] + ["%.6g" % k for k in outline]
             print( "\t".join( outline ), file=fh )
 
+def clean_acc( acc ):
+    if re.search( "^(>)?[a-z]{2}\|", acc ):
+        acc = acc.split( c_delim )[1]
+    return acc
+
 #-------------------------------------------------------------------------------
 # main
 #-------------------------------------------------------------------------------
@@ -197,8 +196,10 @@ def main( ):
         name = os.path.split( p )[1].split( "." )[0]
         sdict = read_dict( try_open( p ), headers=True,
                            func=float, dialect="excel-tab" )
+        # rebuild dict with clean acc
+        sdict = {clean_acc( k ): v for k, v in sdict.items( )}
         # update keys with cluster numbers
-        sdict = {c_cluster_delim.join( [cmap.get( k, c_na ), k] ):v for k, v in sdict.items( )}
+        sdict = {c_delim.join( [cmap.get( k, c_na ), k] ): v for k, v in sdict.items( )}
         dd[name] = sdict
     # genome-size-normalize?
     if args.genome_size_normalize is not None:
@@ -224,11 +225,11 @@ def main( ):
     for name, sdict in dd.items( ):
         cdict = {}
         for k, v in sdict.items( ):
-            cluster, protein = k.split( c_cluster_delim )
+            cluster, protein = k.split( c_delim )
             cdict[cluster] = cdict.get( cluster, 0 ) + v
         dd[name] = cdict
     # write out the clusters file
     write_nested_dict( dd, args.cluster_abundance_file )
             
 if __name__ == "__main__":
-    main()
+    main( )
