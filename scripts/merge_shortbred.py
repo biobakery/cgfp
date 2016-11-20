@@ -158,9 +158,9 @@ def read_dict( fh, kdex=0, vdex=1, multivalue=False,
     return d
 
 def strat_sort( k ):
-    k = k.split( c_delim )[0]
-    k = 0 if k == c_na else int( k )
-    return k
+    key = k.split( c_delim )
+    key[0] = 0 if key[0] == c_na else int( key[0] )
+    return key
 
 def write_nested_dict( dd, path, missing=0 ):
     colheads = sorted( dd )
