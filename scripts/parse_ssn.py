@@ -73,47 +73,35 @@ def get_args( ):
         formatter_class=argparse.RawTextHelpFormatter,
     )
     parser.add_argument( 
-        'nodes',
+        "nodes",
         type=str,
-        help="""
-        SSN nodes file (csv format)
-        """,
+        help="SSN nodes file (csv format)",
     )
     parser.add_argument( 
         "edges",
         type=str,
-        help="""
-        SSN edges file (csv format)
-        """,
+        help="SSN edges file (csv format)",
     )
     parser.add_argument( 
         "-e", "--min-percid",
         type=float,
         metavar="<0-100>",
         default=0.0,
-        help="""
-        Filtered edges must exceed this percent identity (Default=0.0)
-        """,
+        help="Filtered edges must exceed this percent identity (Default=0.0)",
     )
     parser.add_argument(
         "-a", "--accession-list",
         type=str,
         metavar="<path>",
         default="cgfp-accessions.txt",
-        help="""
-        Path to output file 1: list of UniProt protein accession numbers
-        included in the SSN.
-        """,
+        help="Path to output file 1: list of UniProt protein accession numbers",
     )
     parser.add_argument( 
         "-c", "--clusters-file",
         type=str,
         metavar="<path>",
         default="cgfp-clusters.txt",
-        help="""
-        Path to output file 2: mapping of accession numbers to clusters
-        (connected components) in the SSN.
-        """,
+        help="Path to output file 2: mapping of accession numbers to clusters (connected components) in the SSN",
     )
     args = parser.parse_args()
     return args

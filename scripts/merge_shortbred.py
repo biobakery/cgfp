@@ -76,50 +76,44 @@ def get_args( ):
         formatter_class=argparse.RawTextHelpFormatter,
     )
     parser.add_argument( 
-        'shortbred_outputs',
+        "shortbred_outputs",
         type=str,
         metavar="<path(s) to shortbred outputs>",
         nargs="+",
-        help="""One or more output files from ShortBRED quantify
-        """,
+        help="One or more output files from ShortBRED quantify",
     )
     parser.add_argument( 
         "-c", "--clusters-file",
         required=True,
         metavar="<path>",
         type=str,
-        help="""Clusters file created from parse_ssn.py
-        """,
+        help="Clusters file created from parse_ssn.py",
     )
     parser.add_argument( 
         "-p", "--protein-abundance-file",
         type=str,
         metavar="<path>",
         default="protein-abundance.txt",
-        help="""Path to output file 1: abundance of individual proteins
-        """,
+        help="Path to output file 1: abundance of individual proteins",
     )
     parser.add_argument( 
         "-C", "--cluster-abundance-file",
         type=str,
         metavar="<path>",
         default="cluster-abundance.txt",
-        help="""Path to output file 2: abundance of SSN clusters
-        """,
+        help="Path to output file 2: abundance of SSN clusters",
     )
     parser.add_argument( 
         "-n", "--sum-normalize",
         action="store_true",
-        help="""Sum-normalize the output files (force columns sums = 1.0)
-        """,
+        help="Sum-normalize the output files (force columns sums = 1.0)",
     )
     parser.add_argument( 
         "-g", "--genome-size-normalize",
         type=str,
         default=None,
         metavar="<path>",
-        help="""Perform genome-size normalization\n(requires mapping from sample ID to average genome size)
-        """,
+        help="Perform genome-size normalization (requires mapping from sample ID to average genome size)",
     )
     args = parser.parse_args()
     return args
