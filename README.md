@@ -178,4 +178,4 @@ Alternatively, `merge_shortbred.py` can normalize protein abundance information 
 
 #### 6. Downstream analysis
 
- The tables produced by merge_shortbred.py can be analyzed in any number of ways. We used [`hclust2`](https://bitbucket.org/nsegata/hclust2) to construct heatmaps useful for visualizing the results of this analysis.
+ The tables produced by `merge_shortbred.py` can be analyzed in any number of ways. For example, heatmap-style visualization provides a convenient summary of the entire merged abundance table. [`hclust2`](https://bitbucket.org/nsegata/hclust2) provides a Python interface for heatmap construction (along with feature selection and feature/sample clustering).
