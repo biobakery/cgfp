@@ -1,11 +1,17 @@
 # A protocol for chemically-guided functional profiling (CGFP) in meta’omics data
 
+----
+
 [TOC]
+
+----
 
 ## Authors
 
 * Benjamin J. Levin (<mailto:blevin@fas.harvard.edu>)
 * Eric Franzosa
+
+----
 
 ## Description
 
@@ -17,11 +23,15 @@ ShortBRED is a method for quantifying the abundance of protein-encoding genes in
 
 By combining the knowledge embedded within a SSN with ShortBRED quantification, one can determine the abundances of functionally distinct members of an enzyme superfamily in meta’omics datasets. First, an SSN is constructed for a given protein family of interest (PFOI), with the goal of dividing the family into isofunctional clusters. The abundances of members of the PFOI in meta’omics data are then determined using ShortBRED. Each member of the PFOI is linked to a cluster on the SSN, and so abundance information of entire clusters can be found by summing the abundances of each cluster’s members. **Assuming clusters in the SSN are isofunctional, the abundances of particular biochemical functions in microbiomes to be determined.**
 
+----
+
 ## Citation
 
 If you use the protocol or data files provided here, please cite our the following publication:
 
 TBD
+
+----
 
 ## Prerequisites
 
@@ -36,6 +46,8 @@ TBD
 * **Metagenomes of interest.** User-provided metagenomes and metatranscriptomes can be used in this protocol. Publicly available datasets can be used for this analysis as well. The [Human Microbiome Project](http://hmpdacc.org/HMASM/) has made available hundreds of metagenomes. [MG-RAST](http://metagenomics.anl.gov/) and the [EBI metagenomics database](https://www.ebi.ac.uk/metagenomics/) are additional, excellent resources for acquiring shotgun meta’omic sequencing data for a variety of projects and microbial community types.
 
 * **CGFP scripts.** Two scripts, compatible with Python 2.7+, are required to complete the protocol. [Download those scripts + demo data here](https://bitbucket.org/biobakery/cgfp/get/default.zip). Alternatively, you may directly clone this repository: ``hg clone https://bitbucket.org/biobakery/cgfp``.
+
+----
 
 ## Protocol
 
@@ -69,6 +81,8 @@ Where:
 
  If the SSN was not generated from an InterPro family, this script will not work. A list of accession codes and a cluster mapping file will need to be made manually or with an application-specific script.
 
+----
+
 #### 2. Obtaining FASTA Sequences
 
 The sequences for all of the proteins in the SSN need to be obtained. Using the list of UniProt accession codes obtained in the previous step, sequences can be downloaded easily from [http://www.uniprot.org/uploadlists/](http://www.uniprot.org/uploadlists/). After uploading the list of sequences, confirm that the default options to convert the accession codes (UniProtKB AC/ID) to UniProtKB output and select ``Go`` (see figure below).
@@ -81,6 +95,8 @@ On the results page, select ``Download`` and download all of the sequences as ``
  **ADD FIGURE 3**
 
 If the SSN was not generated with an InterPro family, the sequence list will need to be constructed either manually or with an application-specific script.
+
+----
 
 ### Running ShortBRED
 
@@ -106,6 +122,8 @@ Where:
 
 * `$TMP` is the location for ShortBRED to store temporary files. Some of these files are useful for analysis and troubleshooting and it is recommended they be saved.
 
+----
+
 #### 4. Running ShortBRED-Quantify
 
 ShortBRED-Quantify is run with the markers generated in Step 3 against a user-provided metagenome (or metatranscriptome). A typical ShortBRED-Quantify call is provided below. This script will need to be run for each metagenome of interest. For a full list of flags, run ``./shortbred_quantify.py -h``.
@@ -125,6 +143,8 @@ Where:
 * `$RESULTS` is the location of where to store the resulting output file.
 
 * `$TMP` is the location for ShortBRED to store temporary files. This flag is not necessary, but highly useful for troubleshooting and detailed analysis.
+
+----
 
 ### Merging and analyzing ShortBRED results
 
@@ -146,11 +166,15 @@ Where:
 
 This script takes as inputs a list of locations of results files (from Step 4) and the cluster mapping file (from Step 2) and outputs two tables: one with results for each protein and one where proteins from the same cluster in the SSN have had their abundances summed.
 
+----
+
 #### 5. Output normalization
 
 The `merge_shortbred.py` script can be used to normalize the output to counts per microbial genome. To do this calculation, append the flag `-g $AGS`, where `$AGS` is a two column file: the first column has metagenome identifiers and the second column lists the average genome size. Average genome sizes (AGS) have been previously computed [for many of the HMP metagenomes](http://dx.doi.org/10.1186/s13059-015-0611-7) using the software system [MicrobeCensus](https://github.com/snayfach/MicrobeCensus). MicrobeCensus can be applied to compute AGS values for additional metagenomes. If you use MicrobeCensus or the AGS values bundled with the CGFP workflow, [please cite this publication](http://dx.doi.org/10.1186/s13059-015-0611-7).
 
 Alternatively, `merge_shortbred.py` can normalize protein abundance information to relative abundance (sum=1) units. This does not require any additional files. If no extra normalization options are specified, the table is output in RPKM units (reads per kilobase of sequence per million sample reads).
+
+----
 
 #### 6. Downstream analysis
 
