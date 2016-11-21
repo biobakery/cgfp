@@ -64,7 +64,7 @@ Two tables must be exported from the SSN of interest. The tables of node and edg
  The script to generate the accession code list and the mapping file can be run as follows:
 
 ```
-./scripts/parse_ssn.py -e $N -a $ACCESSION -c $CLUSTERS $NODES $EDGES`
+./scripts/parse_ssn.py $NODES $EDGES -e $N -a $ACCESSION -c $CLUSTERS
 ```
 
 Where:
