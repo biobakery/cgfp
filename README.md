@@ -1,3 +1,5 @@
+# **This repository is associated with a paper that is currently under review. Please do not distribute any of the protocols or scripts on this page.**
+
 # A protocol for chemically-guided functional profiling (CGFP) in meta’omics data
 
 ----
@@ -17,11 +19,11 @@
 
 This repository contains a protocol and several scripts to assist users in combining Sequence Similarity Network (SSN) information with ShortBRED output. This approach, called "chemically-guided functional profiling," is useful for studying large protein families in metagenomic and metatranscriptomic datasets.
 
-SSNs are visual tools used to analyze large protein families. SSNs consist of nodes, which represent protein sequences, and edges, which connect nodes that share a sequence identity greater than a user-defined cutoff value. By carefully selecting an edge threshold, a SSN can be used to divide large protein families into putatively isofunctional clusters. Experimental validation is needed to verify clusters are isofunctional, but a SSN can provide an excellent starting point.
+SSNs are visual tools used to analyze large protein families. SSNs consist of nodes, which represent protein sequences, and edges, which connect nodes that share a sequence identity greater than a user-defined cutoff value. By carefully selecting an edge threshold, a SSN can be used to divide large protein families into putatively isofunctional clusters. Experimental validation is needed to verify that clusters are isofunctional, but a SSN can provide an excellent starting point.
 
 ShortBRED is a method for quantifying the abundance of protein-encoding genes in metagenomes and metatranscriptomes. Given a set of amino acid sequences, ShortBRED first identifies short peptide markers unique to highly similar representative sequences and then quantifies the abundance of these markers in meta’omic datasets.
 
-By combining the knowledge embedded within a SSN with ShortBRED quantification, one can determine the abundances of functionally distinct members of an enzyme superfamily in meta’omics datasets. First, an SSN is constructed for a given protein family of interest (PFOI), with the goal of dividing the family into isofunctional clusters. The abundances of members of the PFOI in meta’omics data are then determined using ShortBRED. Each member of the PFOI is linked to a cluster on the SSN, and so abundance information of entire clusters can be found by summing the abundances of each cluster’s members. **Assuming clusters in the SSN are isofunctional, the abundances of particular biochemical functions in microbiomes to be determined.**
+By combining the knowledge embedded within a SSN with ShortBRED quantification, one can determine the abundances of functionally distinct members of an enzyme superfamily in meta’omic datasets. First, an SSN is constructed for a given protein family of interest (PFOI), with the goal of dividing the family into isofunctional clusters. The abundances of members of the PFOI in meta’omics data are then determined using ShortBRED. Each member of the PFOI is linked to a cluster on the SSN, and so abundance information of entire clusters can be found by summing the abundances of each cluster’s members. Assuming clusters in the SSN are isofunctional, the abundances of particular biochemical functions in microbiomes can be determined.
 
 ----
 
@@ -35,7 +37,7 @@ TBD
 
 ## Prerequisites
 
-* **Sequence Similarity Network (SSN) for Protein Family of Interest (PFOI).** An SSN for the PFOI is needed to sum the abundances of similar proteins. SSNs can be generated using Enzyme Function Initiatives-Enzyme Similarity Tool at [http://efi.igb.illinois.edu/efi-est/](http://efi.igb.illinois.edu/efi-est/). In addition to the tutorial on the website, see this review for more information on SSN construction. For chemically-guided functional profiling to be successful, SSNs must be well-constructed. Ideally, the clusters within an SSN should be known to represent isofunctional proteins. The code and tutorial below assume the SSN has been generated from an InterPro family. If another option was used, such as with user-supplied sequences, the general workflow will still work, but the scripts below will not apply.
+* **Sequence Similarity Network (SSN) for Protein Family of Interest (PFOI).** SSNs can be generated using Enzyme Function Initiatives-Enzyme Similarity Tool (EFI-EST) at [http://efi.igb.illinois.edu/efi-est/](http://efi.igb.illinois.edu/efi-est/). In addition to tutorial on the EFI-EST website, their online tutorial, see [this review](http://www.dx.doi.org/10.1016/j.bbapap.2015.04.015) for more information on SSN construction. For chemically-guided functional profiling to be successful, SSNs must be well-constructed. Ideally, the clusters within an SSN should be known to represent isofunctional proteins. The code and tutorial below assume that the SSN has been generated from an InterPro family. If another option was used, such as with user-supplied sequences, the general workflow would be identical, but the scripts below would not apply.
 
 * **Cytoscape.** A program used to visualize SSNs. Cytoscape can be downloaded from [www.cytoscape.org](http://www.cytoscape.org). The tools below have been validated with Cytoscape 3.2.1.
 
