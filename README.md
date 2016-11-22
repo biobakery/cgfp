@@ -96,7 +96,7 @@ On the results page, select ``Download`` and download all of the sequences as ``
 
 ![UniProtKB results](https://bitbucket.org/repo/KEX7Xo/images/4050755337-Uniprot%20Figure%202%20cropped.png 'UniProtKB results')
 
-If the SSN was not generated with an InterPro family, the sequence list will need to be constructed either manually or with an application-specific script.
+If the SSN was not generated with an InterPro family, the sequence list would need to be constructed either manually or with an application-specific script.
 
 ----
 
@@ -104,7 +104,7 @@ If the SSN was not generated with an InterPro family, the sequence list will nee
 
 #### 3. Running ShortBRED-Identify
 
-ShortBRED-Identify is used to find markers for similar members of the PFOI. It requires a FASTA file containing all sequences of interest and a reference list, typically UniRef90. Only the list of markers is needed for subsequent analysis, but temporary files should be retained if ShortBRED-Identify needs to be rerun with modified parameters.
+ShortBRED-Identify is used to find markers for similar members of the PFOI. It requires a FASTA file containing all sequences of interest and a reference list, typically UniRef90. Only the list of markers is needed for subsequent analysis, but temporary files should be retained if ShortBRED-Identify will need to be rerun with modified parameters.
 
 A typical ShortBRED-Identify call is provided below. Note that ShortBRED-Identify takes ~100 CPU-hours to find markers for ~1,000 sequences, but the rate-limiting steps are parallelized and can benefit from the use of multiple CPU cores. For a full list of flags, run ``./shortbred_identify.py -h``.
 
@@ -114,7 +114,7 @@ A typical ShortBRED-Identify call is provided below. Note that ShortBRED-Identif
  
 Where:
 
-* `$THREADS` is the number of threads for ShortBRED to use. This is important when running this script on computational clusters.
+* `$THREADS` is the number of threads for ShortBRED to use. This is important when running on computational clusters.
 
 * `$GOIFASTA` is the location of a FASTA file containing all of the sequences for proteins on the SSN. This file was generated in Step 2 of this protocol.
 
