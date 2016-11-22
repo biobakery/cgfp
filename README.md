@@ -176,7 +176,7 @@ This script takes as inputs a list of locations of results files (from Step 4) a
 
 The `merge_shortbred.py` script can be used to normalize the output to counts per microbial genome. To do this calculation, append the flag `-g $AGS`, where `$AGS` is a two column file: the first column has metagenome identifiers and the second column lists the average genome size. Average genome sizes (AGS) have been previously computed [for many of the HMP metagenomes](http://dx.doi.org/10.1186/s13059-015-0611-7) using the software system [MicrobeCensus](https://github.com/snayfach/MicrobeCensus). MicrobeCensus can be applied to compute AGS values for additional metagenomes. If you use MicrobeCensus or the AGS values bundled with the CGFP workflow, [please cite this publication](http://dx.doi.org/10.1186/s13059-015-0611-7).
 
-Alternatively, `merge_shortbred.py` can normalize protein abundance information to relative abundance (sum=1) units. To perform this type of normalization, append the flag `-N` to the script. This does not require any additional files. If no extra normalization options are specified, the table is output in RPKM units (reads per kilobase of sequence per million sample reads).
+Alternatively, `merge_shortbred.py` can normalize protein abundance information to relative abundance (sum=1) units. To perform this type of normalization, append the flag `-n`. This does not require any additional files. If no extra normalization options are specified, the table is output in RPKM units (reads per kilobase of sequence per million sample reads).
 
 ----
 
