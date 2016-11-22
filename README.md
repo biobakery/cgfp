@@ -90,11 +90,11 @@ Where:
 The sequences for all proteins in the SSN need to be obtained. Using the list of UniProt accession codes obtained in the previous step, sequences can be downloaded easily from [http://www.uniprot.org/uploadlists/](http://www.uniprot.org/uploadlists/). After uploading the list of sequences, confirm that the default options to convert the accession codes (UniProtKB AC/ID) to UniProtKB output and select ``Go`` (see figure below).
 
 
-![Retrieve/ID mapping](https://bitbucket.org/repo/KEX7Xo/images/426642803-Uniprot%20Figure%201.png 'Retrieve ID mapping')
+![Retrieve/ID mapping](https://bitbucket.org/repo/KEX7Xo/images/482423230-Uniprot%20Figure%201%20cropped.png 'Retrieve/ID mapping')
 
 On the results page, select ``Download`` and download all of the sequences as ``FASTA (canonical)`` (see figure below). Be sure to unzip the file if a compressed version is downloaded.
 
- **ADD FIGURE 3**
+![UniProtKB results](https://bitbucket.org/repo/KEX7Xo/images/4050755337-Uniprot%20Figure%202%20cropped.png 'UniProtKB results')
 
 If the SSN was not generated with an InterPro family, the sequence list will need to be constructed either manually or with an application-specific script.
 
