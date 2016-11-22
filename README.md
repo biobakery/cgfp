@@ -57,7 +57,7 @@ TBD
 
 #### 1. Extracting Data from the SSN
 
-Two tables must be exported from the SSN of interest. The tables of node and edge information can be exported from Cytoscape. Open the SSN of interest and select ``File`` > ``Export`` > ``Table`` and select the node table from the list that appears. Repeat the process, selecting the edge table to obtain both tables (see figure below).
+Two tables must be exported from the SSN of interest. These tables, containing information about the nodes and edges in the SSN, can be exported from Cytoscape. Open the SSN of interest and select ``File`` > ``Export`` > ``Table`` and select the node table from the list that appears. Repeat the process, selecting the edge table to obtain both tables (see figure below).
 
    ![Exporting Tables from an SSN](https://bitbucket.org/repo/KEX7Xo/images/861397537-Table%20export%20figure%20Cropped.png 'Exporting Tables from an SSN')
 
@@ -81,7 +81,7 @@ Where:
 
 * `-e $N` is an additional edge filter. Instead of forcing users to regenerate a new SSN or remove edges in Cytoscape if the SSN is to be refined (i.e. increase the edge threshold), this flag forces the script to only consider edges connecting nodes sharing greater than _N_% identity. This flag is optional.
 
- If the SSN was not generated from an InterPro family, this script would not work. A list of accession codes and a cluster mapping file would need to be made manually from the table of nodes or with an application-specific script.
+ If the SSN was not generated from an InterPro family, this script will not work. A list of accession codes and a cluster mapping file would need to be made manually from the table of nodes or with an application-specific script.
 
 ----
 
@@ -155,7 +155,7 @@ Where:
 ShortBRED-Quantify outputs one `$RESULTS` file for each metagenome analyzed. For analyzing more than one metagenome, we have written a script to combine the output from multiple results files: `merge_shortbred.py`. It can be run as follows:
 
 ```
-./scripts/merge_shortbred.py $RESULTS_1 $RESULTS_2 … $RESULTS_N --clusters-file $CLUSTERS
+./scripts/merge_shortbred.py $RESULTS_1 $RESULTS_2 … $RESULTS_N -c $CLUSTERS -p $PROTEINS -C $CLUSTERS
 ```
 
 Where:
@@ -164,9 +164,11 @@ Where:
 
 * `$CLUSTERS` is the cluster mapping file generated in Step 1.
 
-* Additional flags are available, including where to save protein and cluster abundances files and to normalize samples to counts per microbial genome if average genome size is available. For more information, run `./merge_shortbred.py -h`
+* `$PROTEINS` is the name of the output file containing the abundances of individual proteins.
 
-This script takes as inputs a list of locations of results files (from Step 4) and the cluster mapping file (from Step 2) and outputs two tables: one with results for each protein and one where proteins from the same cluster in the SSN have had their abundances summed.
+* `$CLUSTERS` is the name of the output file containing the abundances of clusters on the SSN.
+
+This script takes as inputs a list of locations of results files (from Step 4) and the cluster mapping file (from Step 2) and outputs two tables: one with results for each protein and one where proteins from the same cluster in the SSN have had their abundances summed. For more information and a full list of flags, run `./merge_shortbred.py -h`.
 
 ----
 
@@ -174,7 +176,7 @@ This script takes as inputs a list of locations of results files (from Step 4) a
 
 The `merge_shortbred.py` script can be used to normalize the output to counts per microbial genome. To do this calculation, append the flag `-g $AGS`, where `$AGS` is a two column file: the first column has metagenome identifiers and the second column lists the average genome size. Average genome sizes (AGS) have been previously computed [for many of the HMP metagenomes](http://dx.doi.org/10.1186/s13059-015-0611-7) using the software system [MicrobeCensus](https://github.com/snayfach/MicrobeCensus). MicrobeCensus can be applied to compute AGS values for additional metagenomes. If you use MicrobeCensus or the AGS values bundled with the CGFP workflow, [please cite this publication](http://dx.doi.org/10.1186/s13059-015-0611-7).
 
-Alternatively, `merge_shortbred.py` can normalize protein abundance information to relative abundance (sum=1) units. This does not require any additional files. If no extra normalization options are specified, the table is output in RPKM units (reads per kilobase of sequence per million sample reads).
+Alternatively, `merge_shortbred.py` can normalize protein abundance information to relative abundance (sum=1) units. To perform this type of normalization, append the flag `-N` to the script. This does not require any additional files. If no extra normalization options are specified, the table is output in RPKM units (reads per kilobase of sequence per million sample reads).
 
 ----
 
