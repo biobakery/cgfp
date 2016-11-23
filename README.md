@@ -29,7 +29,7 @@ By combining the knowledge embedded within an SSN with ShortBRED quantification,
 
 ## Citation
 
-If you use the protocol or data files provided here, please cite our the following publication:
+If you use the protocol or data files provided here, please cite the following publication:
 
 TBD
 
