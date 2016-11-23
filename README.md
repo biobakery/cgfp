@@ -188,7 +188,7 @@ Alternatively, `merge_shortbred.py` can normalize protein abundance information 
 
 ## Tutorial
 
-We have included sample files to use as test files. The expected inputs and outputs for each of the steps is given below:
+We have included sample files to use as test cases. The expected inputs and outputs for each of the steps in the protocol is given below:
 
 * Step 1
      * Input: IPR004184_nodes_10-13-16.csv; IPR004184_edges_10-13-16.csv
