@@ -203,8 +203,8 @@ We have included sample files to use as test files. The expected inputs and outp
      * Input: Markers.faa (ShortBRED-Quantify was run separately against each metagenome; metagenomes used in this tutorial can be obtained from [here](http://hmpdacc.org/HMASM/))
      * Output: SRS011061.txt; SRS011134.txt; SRS011239.txt
 * Step 5
-     * Input: SRS011061.txt; SRS011134.txt; SRS011239.txt
+     * Input: SRS011061.txt; SRS011134.txt; SRS011239.txt; Mapping.tsv
      * Output: ProteinCounts.tsv; ClusterCounts.tsv
 * Step 6
-     * Input: SRS011061.txt; SRS011134.txt; SRS011239.txt, Mapping.tsv
+     * Input: SRS011061.txt; SRS011134.txt; SRS011239.txt; Mapping.tsv; AvgGenomeSizes.txt
      * Output: ProteinCountsNorm.tsv; ClusterCountsNorm.tsv
