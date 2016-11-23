@@ -19,7 +19,7 @@
 
 This repository contains a protocol and several scripts to assist users in combining Sequence Similarity Network (SSN) information with ShortBRED output. This approach, called "chemically-guided functional profiling," is useful for studying large protein families in metagenomic and metatranscriptomic datasets.
 
-SSNs are visual tools used to analyze large protein families. SSNs consist of nodes, which represent protein sequences, and edges, which connect nodes that share a sequence identity greater than a user-defined cutoff value. By carefully selecting an edge threshold, a SSN can be used to divide large protein families into putatively isofunctional clusters. Experimental validation is needed to verify that clusters are isofunctional, but a SSN can provide an excellent starting point.
+SSNs are visual tools used to analyze large protein families. SSNs consist of nodes, which represent protein sequences, and edges, which connect nodes that share a sequence identity greater than a user-defined cutoff value. By carefully selecting an edge threshold, an SSN can be used to divide large protein families into putatively isofunctional clusters. Experimental validation is needed to verify that clusters are isofunctional, but an SSN can provide an excellent starting point.
 
 ShortBRED is a method for quantifying the abundance of protein-encoding genes in metagenomes and metatranscriptomes. Given a set of amino acid sequences, ShortBRED first identifies short peptide markers unique to highly similar representative sequences and then quantifies the abundance of these markers in meta’omic datasets.
 
