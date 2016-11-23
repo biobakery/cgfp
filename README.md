@@ -200,8 +200,8 @@ We have included sample files to use as test files. The expected inputs and outp
      * Input: Sequence.fasta (UniRef90 was used as the reference set)
      * Output: Markers.faa
 * Step 4
-     * Input: Markers.faa
-     * Output: SRS011061.txt; SRS011134.txt; SRS011239.txt (ShortBRED-Quantify was run separately against each metagenome; metagenomes can be obtained from [here](http://hmpdacc.org/HMASM/)
+     * Input: Markers.faa (ShortBRED-Quantify was run separately against each metagenome; metagenomes used in this tutorial can be obtained from [here](http://hmpdacc.org/HMASM/))
+     * Output: SRS011061.txt; SRS011134.txt; SRS011239.txt
 * Step 5
      * Input: SRS011061.txt; SRS011134.txt; SRS011239.txt
      * Output: ProteinCounts.tsv; ClusterCounts.tsv
