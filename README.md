@@ -191,7 +191,7 @@ Alternatively, `merge_shortbred.py` can normalize protein abundance information 
 We have included sample files to use as test files. The expected inputs and outputs for each of the steps is given below:
 
 * Step 1
-     * Input: IPR004184_nodes_10-13-16.csv; IPR004184_edges_10-13-16.csv.
+     * Input: IPR004184_nodes_10-13-16.csv; IPR004184_edges_10-13-16.csv
      * Output: UniProtIDs.txt; Mapping.tsv
 * Step 2
      * Input: UniProtIDs.txt
