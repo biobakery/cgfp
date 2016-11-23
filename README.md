@@ -183,3 +183,28 @@ Alternatively, `merge_shortbred.py` can normalize protein abundance information 
 #### 7. Downstream analysis
 
  The tables produced by `merge_shortbred.py` can be analyzed in any number of ways. For example, heatmap-style visualization provides a convenient summary of the entire merged abundance table. [`hclust2`](https://bitbucket.org/nsegata/hclust2) provides a Python interface for heatmap construction (along with feature selection and feature/sample clustering).
+
+----
+
+## Tutorial
+
+We have included sample files to use as test files. The expected inputs and outputs for each of the steps is given below:
+
+* Step 1
+     * Input: IPR004184_nodes_10-13-16.csv; IPR004184_edges_10-13-16.csv.
+     * Output: UniProtIDs.txt; Mapping.tsv
+* Step 2
+     * Input: UniProtIDs.txt
+     * Output: Sequences.fasta
+* Step 3
+     * Input: Sequence.fasta (UniRef90 was used as the reference set)
+     * Output: Markers.faa
+* Step 4
+     * Input: Markers.faa
+     * Output: SRS011061.txt; SRS011134.txt; SRS011239.txt (ShortBRED-Quantify was run separately against each metagenome; metagenomes can be obtained from [here](http://hmpdacc.org/HMASM/)
+* Step 5
+     * Input: SRS011061.txt; SRS011134.txt; SRS011239.txt
+     * Output: ProteinCounts.tsv; ClusterCounts.tsv
+* Step 6
+     * Input: SRS011061.txt; SRS011134.txt; SRS011239.txt, Mapping.tsv
+     * Output: ProteinCountsNorm.tsv; ClusterCountsNorm.tsv
