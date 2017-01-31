@@ -1,6 +1,4 @@
-# **This repository is associated with a paper that is currently under review. Please do not distribute any of the protocols or scripts on this page.**
-
-# A protocol for chemically-guided functional profiling (CGFP) in meta’omics data
+# A protocol for chemically guided functional profiling (CGFP) in meta’omics data
 
 ----
 
@@ -17,7 +15,7 @@
 
 ## Description
 
-This repository contains a protocol and several scripts to assist users in combining Sequence Similarity Network (SSN) information with ShortBRED output. This approach, called "chemically-guided functional profiling," is useful for studying large protein families in metagenomic and metatranscriptomic datasets.
+This repository contains a protocol and several scripts to assist users in combining Sequence Similarity Network (SSN) information with ShortBRED output. This approach, called "chemically guided functional profiling," is useful for studying large protein families in metagenomic and metatranscriptomic datasets.
 
 SSNs are visual tools used to analyze large protein families. SSNs consist of nodes, which represent protein sequences, and edges, which connect nodes that share a sequence identity greater than a user-defined cutoff value. By carefully selecting an edge threshold, an SSN can be used to divide large protein families into putatively isofunctional clusters. Experimental validation is needed to verify that clusters are isofunctional, but an SSN can provide an excellent starting point.
 
@@ -31,13 +29,13 @@ By combining the knowledge embedded within an SSN with ShortBRED quantification,
 
 If you use the protocol or data files provided here, please cite the following publication:
 
-TBD
+B. J. Levin *et al*., *Science* **355**, eaai8386 (2017). (DOI: [10.1126/science.aai8386](http://dx.doi.org/10.1126/science.aai8386))
 
 ----
 
 ## Prerequisites
 
-* **Sequence Similarity Network (SSN) for Protein Family of Interest (PFOI).** SSNs can be generated using the Enzyme Function Initiatives-Enzyme Similarity Tool (EFI-EST) at [http://efi.igb.illinois.edu/efi-est/](http://efi.igb.illinois.edu/efi-est/). In addition to the tutorial on the EFI-EST website, see [this review](http://www.dx.doi.org/10.1016/j.bbapap.2015.04.015) for more information on SSN construction. For chemically-guided functional profiling to be successful, SSNs must be well-constructed. Ideally, the clusters within an SSN should be known to represent isofunctional proteins. The code and tutorial below assume that the SSN has been generated from an InterPro family. If another option was used, such as with user-supplied sequences, the general workflow will be identical, but the scripts below will not apply.
+* **Sequence Similarity Network (SSN) for Protein Family of Interest (PFOI).** SSNs can be generated using the Enzyme Function Initiatives-Enzyme Similarity Tool (EFI-EST) at [http://efi.igb.illinois.edu/efi-est/](http://efi.igb.illinois.edu/efi-est/). In addition to the tutorial on the EFI-EST website, see [this review](http://www.dx.doi.org/10.1016/j.bbapap.2015.04.015) for more information on SSN construction. For chemically guided functional profiling to be successful, SSNs must be well-constructed. Ideally, the clusters within an SSN should be known to represent isofunctional proteins. The code and tutorial below assume that the SSN has been generated from an InterPro family. If another option was used, such as with user-supplied sequences, the general workflow will be identical, but the scripts below will not apply.
 
 * **Cytoscape.** A program used to visualize SSNs. Cytoscape can be downloaded from [www.cytoscape.org](http://www.cytoscape.org). The tools below have been validated with Cytoscape 3.2.1.
 
