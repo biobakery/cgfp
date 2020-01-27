@@ -1,14 +1,29 @@
 # A protocol for chemically guided functional profiling (CGFP) in meta’omics data
 
 ----
-
-[TOC]
+- [A protocol for chemically guided functional profiling (CGFP) in meta’omics data](#)
+   - [Authors](#authors)
+   - [Description](#description)
+   - [Citation](#citation)
+   - [Prerequisites](#prerequisites)
+   - [Protocol](#protocol)
+     * [Processing an SSN](#processing-an-ssn)
+       + [1. Extracting Data from the SSN](#1-extracting-data-from-the-ssn)
+       + [2. Obtaining FASTA Sequences](#2-obtaining-fasta-sequences)
+     * [Running ShortBRED](#running-shortbred)
+       + [3. Running ShortBRED-Identify](#3-running-shortbred-identify)
+       + [4. Running ShortBRED-Quantify](#4-running-shortbred-quantify)
+     * [Merging and analyzing ShortBRED results](#merging-and-analyzing-shortbred-results)
+       + [5. Compiling ShortBRED Results](#5-compiling-shortbred-results)
+       + [6. Output normalization](#6-output-normalization)
+       + [7. Downstream analysis](#7-downstream-analysis)
+   - [Tutorial](#tutorial)
 
 ----
 
 ## Authors
 
-* Benjamin J. Levin (<mailto:blevin@fas.harvard.edu>)
+* Benjamin J. Levin
 * Eric Franzosa
 
 ----
@@ -45,7 +60,7 @@ B. J. Levin *et al*., *Science* **355**, eaai8386 (2017). (DOI: [10.1126/science
 
 * **Metagenomes of interest.** User-provided metagenomes and metatranscriptomes can be used in this protocol. Publicly available datasets can be used for this analysis as well. The [Human Microbiome Project](http://hmpdacc.org/HMASM/) has made available hundreds of metagenomes. [MG-RAST](http://metagenomics.anl.gov/) and the [EBI metagenomics database](https://www.ebi.ac.uk/metagenomics/) are additional, excellent resources for acquiring shotgun meta’omic sequencing data for a variety of projects and microbial community types.
 
-* **CGFP scripts.** Two scripts, compatible with Python 2.7+, are required to complete the protocol. [Download those scripts + demo data here](https://bitbucket.org/biobakery/cgfp/get/default.zip). Alternatively, you may directly clone this repository: ``hg clone https://bitbucket.org/biobakery/cgfp``.
+* **CGFP scripts.** Two scripts, compatible with Python 2.7+, are required to complete the protocol. [Download those scripts + demo data here](https://bitbucket.org/biobakery/cgfp/get/default.zip). Alternatively, you may directly clone this repository: ``git clone https://github.com/biobakery/cgfp.git``.
 
 ----
 
