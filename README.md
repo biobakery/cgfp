@@ -44,23 +44,23 @@ By combining the knowledge embedded within an SSN with ShortBRED quantification,
 
 If you use the protocol or data files provided here, please cite the following publication:
 
-B. J. Levin *et al*., *Science* **355**, eaai8386 (2017). (DOI: [10.1126/science.aai8386](http://dx.doi.org/10.1126/science.aai8386))
+B. J. Levin *et al*., *Science* **355**, eaai8386 (2017). (DOI: [10.1126/science.aai8386](https://doi.org/10.1126/science.aai8386))
 
 ----
 
 ## Prerequisites
 
-* **Sequence Similarity Network (SSN) for Protein Family of Interest (PFOI).** SSNs can be generated using the Enzyme Function Initiatives-Enzyme Similarity Tool (EFI-EST) at [http://efi.igb.illinois.edu/efi-est/](http://efi.igb.illinois.edu/efi-est/). In addition to the tutorial on the EFI-EST website, see [this review](http://www.dx.doi.org/10.1016/j.bbapap.2015.04.015) for more information on SSN construction. For chemically guided functional profiling to be successful, SSNs must be well-constructed. Ideally, the clusters within an SSN should be known to represent isofunctional proteins. The code and tutorial below assume that the SSN has been generated from an InterPro family. If another option was used, such as with user-supplied sequences, the general workflow will be identical, but the scripts below will not apply.
+* **Sequence Similarity Network (SSN) for Protein Family of Interest (PFOI).** SSNs can be generated using the Enzyme Function Initiatives-Enzyme Similarity Tool (EFI-EST) at [https://efi.igb.illinois.edu/efi-est/](https://efi.igb.illinois.edu/efi-est/). In addition to the tutorial on the EFI-EST website, see [this review](https://doi.org/10.1016/j.bbapap.2015.04.015) for more information on SSN construction. For chemically guided functional profiling to be successful, SSNs must be well-constructed. Ideally, the clusters within an SSN should be known to represent isofunctional proteins. The code and tutorial below assume that the SSN has been generated from an InterPro family. If another option was used, such as with user-supplied sequences, the general workflow will be identical, but the scripts below will not apply.
 
-* **Cytoscape.** A program used to visualize SSNs. Cytoscape can be downloaded from [www.cytoscape.org](http://www.cytoscape.org). The tools below have been validated with Cytoscape 3.2.1.
+* **Cytoscape.** A program used to visualize SSNs. Cytoscape can be downloaded from [https://cytoscape.org](https://cytoscape.org/). The tools below have been validated with Cytoscape 3.2.1.
 
-* **ShortBRED.** A method to quantify protein families in metagenomes and metatranscriptomes with high specificity. Detailed instructions for installing and running ShortBRED can be found at [https://bitbucket.org/biobakery/shortbred/wiki/Home](https://bitbucket.org/biobakery/shortbred/wiki/Home). For users having issues with installing or running ShortBRED, please direct questions to <mailto:shortbred-users@googlegroups.com>.
+* **ShortBRED.** A method to quantify protein families in metagenomes and metatranscriptomes with high specificity. Detailed instructions for installing and running ShortBRED can be found at [https://bitbucket.org/biobakery/shortbred/wiki/Home](https://bitbucket.org/biobakery/shortbred/wiki/Home). For users having issues with installing or running ShortBRED, please direct questions to the [BioBakery help forum](https://forum.biobakery.org/c/Microbial-community-profiling/ShortBRED).
 
-* **Background protein reference.** ShortBRED requires a "protein universe" to aid in finding peptide markers for proteins of interest. We recommend UniRef90 for this purpose, [which can be downloaded here](http://www.uniprot.org/downloads). UniRef90 is a comprehensive, non-redundant representation of the proteins in UniProt (clustered at 90% amino acid identity). More information about UniRef90 can be found [here](http://www.uniprot.org/help/uniref).
+* **Background protein reference.** ShortBRED requires a "protein universe" to aid in finding peptide markers for proteins of interest. We recommend UniRef90 for this purpose, [which can be downloaded here](https://www.uniprot.org/downloads). UniRef90 is a comprehensive, non-redundant representation of the proteins in UniProt (clustered at 90% amino acid identity). More information about UniRef90 can be found [here](https://www.uniprot.org/help/uniref).
 
-* **Metagenomes of interest.** User-provided metagenomes and metatranscriptomes can be used in this protocol. Publicly available datasets can be used for this analysis as well. The [Human Microbiome Project](http://hmpdacc.org/HMASM/) has made available hundreds of metagenomes. [MG-RAST](http://metagenomics.anl.gov/) and the [EBI metagenomics database](https://www.ebi.ac.uk/metagenomics/) are additional, excellent resources for acquiring shotgun meta’omic sequencing data for a variety of projects and microbial community types.
+* **Metagenomes of interest.** User-provided metagenomes and metatranscriptomes can be used in this protocol. Publicly available datasets can be used for this analysis as well. The [Human Microbiome Project](https://www.hmpdacc.org/HMASM/) has made available hundreds of metagenomes. [MG-RAST](http://www.mg-rast.org/) and the [EBI metagenomics database](https://www.ebi.ac.uk/metagenomics/) are additional, excellent resources for acquiring shotgun meta’omic sequencing data for a variety of projects and microbial community types.
 
-* **CGFP scripts.** Two scripts, compatible with Python 2.7+, are required to complete the protocol. [Download those scripts + demo data here](https://bitbucket.org/biobakery/cgfp/get/default.zip). Alternatively, you may directly clone this repository: ``git clone https://github.com/biobakery/cgfp.git``.
+* **CGFP scripts.** Two scripts, compatible with Python 2.7+, are required to complete the protocol. [Download those scripts + demo data here](https://github.com/biobakery/cgfp/archive/master.zip). Alternatively, you may directly clone this repository: ``git clone https://github.com/biobakery/cgfp.git``.
 
 ----
 
@@ -100,7 +100,7 @@ Where:
 
 #### 2. Obtaining FASTA Sequences
 
-The sequences for all proteins in the SSN need to be obtained. Using the list of UniProt accession codes obtained in the previous step, sequences can be downloaded easily from [http://www.uniprot.org/uploadlists/](http://www.uniprot.org/uploadlists/). After uploading the list of sequences, confirm that the default options to convert the accession codes (UniProtKB AC/ID) to UniProtKB output and select ``Go`` (see figure below).
+The sequences for all proteins in the SSN need to be obtained. Using the list of UniProt accession codes obtained in the previous step, sequences can be downloaded easily from [https://www.uniprot.org/uploadlists/](https://www.uniprot.org/uploadlists/). After uploading the list of sequences, confirm that the default options to convert the accession codes (UniProtKB AC/ID) to UniProtKB output and select ``Go`` (see figure below).
 
 
 ![Retrieve/ID mapping](https://bitbucket.org/repo/KEX7Xo/images/482423230-Uniprot%20Figure%201%20cropped.png 'Retrieve/ID mapping')
@@ -187,7 +187,7 @@ This script takes as inputs a list of locations of results files (from Step 4) a
 
 #### 6. Output normalization
 
-The `merge_shortbred.py` script can be used to normalize the output to counts per microbial genome. To do this calculation, append the flag `-g $AGS`, where `$AGS` is a two column file: the first column has metagenome identifiers and the second column lists the average genome size. Average genome sizes (AGS) have been previously computed [for many of the HMP metagenomes](http://dx.doi.org/10.1186/s13059-015-0611-7) using the software system [MicrobeCensus](https://github.com/snayfach/MicrobeCensus). MicrobeCensus can be applied to compute AGS values for additional metagenomes. If you use MicrobeCensus or the AGS values bundled with the CGFP workflow, [please cite this publication](http://dx.doi.org/10.1186/s13059-015-0611-7).
+The `merge_shortbred.py` script can be used to normalize the output to counts per microbial genome. To do this calculation, append the flag `-g $AGS`, where `$AGS` is a two column file: the first column has metagenome identifiers and the second column lists the average genome size. Average genome sizes (AGS) have been previously computed [for many of the HMP metagenomes](https://doi.org/10.1186/s13059-015-0611-7) using the software system [MicrobeCensus](https://github.com/snayfach/MicrobeCensus). MicrobeCensus can be applied to compute AGS values for additional metagenomes. If you use MicrobeCensus or the AGS values bundled with the CGFP workflow, [please cite this publication](https://doi.org/10.1186/s13059-015-0611-7).
 
 Alternatively, `merge_shortbred.py` can normalize protein abundance information to relative abundance (sum=1) units. To perform this type of normalization, append the flag `-n`. This does not require any additional files. If no extra normalization options are specified, the table is output in RPKM units (reads per kilobase of sequence per million sample reads).
 
@@ -213,7 +213,7 @@ We have included sample files to use as test cases. The expected inputs and outp
      * Input: Sequence.fasta (UniRef90 was used as the reference set)
      * Output: Markers.faa
 * Step 4
-     * Input: Markers.faa (ShortBRED-Quantify was run separately against each metagenome; metagenomes used in this tutorial can be obtained from [here](http://hmpdacc.org/HMASM/))
+     * Input: Markers.faa (ShortBRED-Quantify was run separately against each metagenome; metagenomes used in this tutorial can be obtained from [here](https://www.hmpdacc.org/HMASM/))
      * Output: SRS011061.txt; SRS011134.txt; SRS011239.txt
 * Step 5
      * Input: SRS011061.txt; SRS011134.txt; SRS011239.txt; Mapping.tsv
