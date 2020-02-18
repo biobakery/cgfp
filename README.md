@@ -72,7 +72,7 @@ B. J. Levin *et al*., *Science* **355**, eaai8386 (2017). (DOI: [10.1126/science
 
 Two tables must be exported from the SSN of interest. These tables, containing information about the nodes and edges in the SSN, can be exported from Cytoscape. Open the SSN of interest and select ``File`` > ``Export`` > ``Table`` and select the node table from the list that appears. Repeat the process, selecting the edge table to obtain both tables (see figure below).
 
-   ![Exporting Tables from an SSN](https://bitbucket.org/repo/KEX7Xo/images/861397537-Table%20export%20figure%20Cropped.png 'Exporting Tables from an SSN')
+   ![Exporting Tables from an SSN](./images/Table_export_figure_cropped.png 'Exporting Tables from an SSN')
 
  From these two tables, two additional files need to be generated. We have provided a script that can construct those files: `parse_ssn.py`. This script outputs 1) a list of UniProt accession codes for all sequences on the network and 2) a mapping file to link each node to the cluster it belongs to. The list of accession codes will be used to download the FASTA sequences for all members of the PFOI. The other file, the mapping file, is used to link members of the PFOI to the clusters they belong to. Although the EFI-EST and Cytoscape calculate and illustrate nodes and edges, for our purposes it is more helpful to divide the network into connected components and assign a cluster number to each component. The mapping file links each sequence to the cluster to which it belongs. If the SSN contains isofunctional clusters, then all sequences with the same cluster number (i.e. in the same connected component) correspond to proteins with the same function. 
 
@@ -103,11 +103,11 @@ Where:
 The sequences for all proteins in the SSN need to be obtained. Using the list of UniProt accession codes obtained in the previous step, sequences can be downloaded easily from [https://www.uniprot.org/uploadlists/](https://www.uniprot.org/uploadlists/). After uploading the list of sequences, confirm that the default options to convert the accession codes (UniProtKB AC/ID) to UniProtKB output and select ``Go`` (see figure below).
 
 
-![Retrieve/ID mapping](https://bitbucket.org/repo/KEX7Xo/images/482423230-Uniprot%20Figure%201%20cropped.png 'Retrieve/ID mapping')
+![Retrieve/ID mapping](./images/Uniprot_1_cropped.png 'Retrieve/ID mapping')
 
 On the results page, select ``Download`` and download all of the sequences as ``FASTA (canonical)`` (see figure below). Be sure to unzip the file if a compressed version is downloaded.
 
-![UniProtKB results](https://bitbucket.org/repo/KEX7Xo/images/4050755337-Uniprot%20Figure%202%20cropped.png 'UniProtKB results')
+![UniProtKB results](./images/Uniprot_2_cropped.png 'UniProtKB results')
 
 If the SSN was not generated with an InterPro family, the sequence list would need to be constructed either manually or with an application-specific script.
 
