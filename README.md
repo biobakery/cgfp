@@ -26,6 +26,8 @@
 * Benjamin J. Levin
 * Eric Franzosa
 
+For support, please direct questions and concerns to the [bioBakery help forum](https://forum.biobakery.org/c/General-microbial-community-science-and-analyses/).
+
 ----
 
 ## Description
@@ -54,7 +56,7 @@ B. J. Levin *et al*., *Science* **355**, eaai8386 (2017). (DOI: [10.1126/science
 
 * **Cytoscape.** A program used to visualize SSNs. Cytoscape can be downloaded from [https://cytoscape.org](https://cytoscape.org/). The tools below have been validated with Cytoscape 3.2.1.
 
-* **ShortBRED.** A method to quantify protein families in metagenomes and metatranscriptomes with high specificity. Detailed instructions for installing and running ShortBRED can be found at [https://bitbucket.org/biobakery/shortbred/wiki/Home](https://bitbucket.org/biobakery/shortbred/wiki/Home). For users having issues with installing or running ShortBRED, please direct questions to the [BioBakery help forum](https://forum.biobakery.org/c/Microbial-community-profiling/ShortBRED).
+* **ShortBRED.** A method to quantify protein families in metagenomes and metatranscriptomes with high specificity. Detailed instructions for installing and running ShortBRED can be found at [https://bitbucket.org/biobakery/shortbred/wiki/Home](https://bitbucket.org/biobakery/shortbred/wiki/Home). For users having issues with installing or running ShortBRED, please direct questions to the [bioBakery help forum](https://forum.biobakery.org/c/Microbial-community-profiling/ShortBRED).
 
 * **Background protein reference.** ShortBRED requires a "protein universe" to aid in finding peptide markers for proteins of interest. We recommend UniRef90 for this purpose, [which can be downloaded here](https://www.uniprot.org/downloads). UniRef90 is a comprehensive, non-redundant representation of the proteins in UniProt (clustered at 90% amino acid identity). More information about UniRef90 can be found [here](https://www.uniprot.org/help/uniref).
 
